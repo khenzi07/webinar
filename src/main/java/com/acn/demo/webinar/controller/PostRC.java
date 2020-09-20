@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/posts")
+@RequestMapping(value = "/potss")
 public class PostRC {
 
     @Autowired
@@ -41,7 +41,7 @@ public class PostRC {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity < String > deleteCustomer(@PathVariable Integer id) {
+    public ResponseEntity < String > deletePost(@PathVariable Integer id) {
         postService.deletePost(id);
         return new ResponseEntity < >(HttpStatus.OK);
     }
