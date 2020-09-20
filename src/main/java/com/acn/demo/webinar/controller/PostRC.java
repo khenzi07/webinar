@@ -10,22 +10,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/post")
+@RequestMapping(value = "/posts")
 public class PostRC {
 
     @Autowired
     PostService postService;
 
     @GetMapping
-    public ResponseEntity < List < Post >> getPosts() {
+    public ResponseEntity<List<Post>> getPosts() {
         List < Post > posts = postService.getPosts();
         return new ResponseEntity < >(posts, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity < Post > getCustomer(@PathVariable Integer id) {
+    public ResponseEntity <Post> getPost(@PathVariable Integer id) {
         Post post = postService.getPost(id);
         return new ResponseEntity < >(post, HttpStatus.OK);
+    }
+
+    @GetMapping(params  = "userId")
+    public ResponseEntity <List<Post>> getPostByUserId(@RequestParam Integer userId){
+        List<Post> postList = postService.getPostByUserId(userId);
+        return new ResponseEntity < >(postList, HttpStatus.OK);
     }
 
     @PostMapping
