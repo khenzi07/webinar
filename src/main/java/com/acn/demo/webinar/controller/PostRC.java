@@ -40,18 +40,22 @@ public class PostRC {
         return new ResponseEntity < >(postList, HttpStatus.OK);
     }
 
+	@CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity <Post> createPosts(@RequestBody Post post) {
+    	System.out.println("Post: " + post.toString());
         final Post finalPost = postService.createPost(post);
         return new ResponseEntity < >(finalPost, HttpStatus.OK);
     }
-
+	
+	@CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(value = "/{id}")
     public ResponseEntity < String > deletePost(@PathVariable Integer id) {
         postService.deletePost(id);
         return new ResponseEntity < >(HttpStatus.OK);
     }
-
+	
+	@CrossOrigin(origins = "http://localhost:3000")
     @PutMapping(value ="/{id}")
     public ResponseEntity<Post> updatePost(@PathVariable(value = "id") Integer id,
                                                    @RequestBody Post post) {
