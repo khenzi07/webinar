@@ -48,6 +48,17 @@ public class PostService {
         return postList;
     }
 
+    public List<Post> getPostComments(Integer id) {
+        List<PostModel> posts  = postRepository.findByUserId(id);
+        List postList = new ArrayList<>();
+        for (Object postModel : posts) {
+            Post post = new Post();
+            BeanUtils.copyProperties(postModel, post);
+            postList.add(post);
+        }
+        return postList;
+    }
+
     public Post createPost(final Post post) {
         PostModel postModel = new PostModel();
         BeanUtils.copyProperties(post, postModel);
