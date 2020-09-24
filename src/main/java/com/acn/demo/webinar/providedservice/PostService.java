@@ -1,7 +1,7 @@
 package com.acn.demo.webinar.providedservice;
 
 import com.acn.demo.webinar.model.Post;
-import com.acn.demo.webinar.model.PostModel;
+import com.acn.demo.webinar.persistence.PostModel;
 import com.acn.demo.webinar.persistence.PostRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,17 +38,6 @@ public class PostService {
     }
 
     public List<Post> getPostByUserId(Integer id) {
-        List<PostModel> posts  = postRepository.findByUserId(id);
-        List postList = new ArrayList<>();
-        for (Object postModel : posts) {
-            Post post = new Post();
-            BeanUtils.copyProperties(postModel, post);
-            postList.add(post);
-        }
-        return postList;
-    }
-
-    public List<Post> getPostComments(Integer id) {
         List<PostModel> posts  = postRepository.findByUserId(id);
         List postList = new ArrayList<>();
         for (Object postModel : posts) {
