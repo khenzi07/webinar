@@ -71,4 +71,14 @@ public class PostService {
     public void deletePost(Integer id) {
         postRepository.deleteById(id);
     }
+
+    public Post updatePost(Integer id, Post updatePost) throws Exception {
+        PostModel searchPost = postRepository.findById(id).orElseThrow(
+                () -> new Exception ("Resource not found"));
+        BeanUtils.copyProperties(updatePost, searchPost);
+        Post postData = new Post();
+        BeanUtils.copyProperties(searchPost, postData);
+        return postData;
+    }
+
 }

@@ -52,4 +52,15 @@ public class PostRC {
         return new ResponseEntity < >(HttpStatus.OK);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Post> updatePost(@PathVariable(value = "id") Integer id,
+                                                   @RequestBody Post post) {
+        try {
+            return ResponseEntity.ok(postService.updatePost(id, post));
+        } catch (Exception e) {
+            return new ResponseEntity < >(null, HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
 }
