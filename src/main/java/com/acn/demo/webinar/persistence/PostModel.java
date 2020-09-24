@@ -1,4 +1,4 @@
-package com.acn.demo.webinar.model;
+package com.acn.demo.webinar.persistence;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

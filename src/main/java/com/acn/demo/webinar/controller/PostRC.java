@@ -34,12 +34,6 @@ public class PostRC {
         return new ResponseEntity < >(postList, HttpStatus.OK);
     }
 
-    @GetMapping(params  = "/{id}/comments")
-    public ResponseEntity <List<Post>> getPostComments(@PathVariable Integer id){
-        List<Post> postList = postService.getPostComments(id);
-        return new ResponseEntity < >(postList, HttpStatus.OK);
-    }
-
 	@CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity <Post> createPosts(@RequestBody Post post) {
