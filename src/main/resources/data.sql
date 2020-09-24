@@ -4,4 +4,4 @@ INSERT INTO POST_MODEL (id, body, title, user_id) VALUES
   (3, 'Twelfth Night', 'Be not afraid of greatness: some are born great, some achieve greatness and some have greatness thrust upon them', 3),
   (4, 'As You Like It', 'The fool doth think he is wise, but the wise man knows himself to be a fool', 4),
   (5, 'TweThe Merchant of Venice', 'All that glisters is not gold.', 5),
-  (6, 'Julius Caesar', 'When that the poor have cried, Caesar hath wept: Ambition should be made of sterner stuff', 6)
+  (6, 'Julius Caesar', 'When that the poor have cried, Caesar hath wept: Ambition should be made of sterner stuff', 6);

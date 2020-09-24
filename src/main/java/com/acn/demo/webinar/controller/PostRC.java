@@ -52,7 +52,7 @@ public class PostRC {
         return new ResponseEntity < >(HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(value ="/{id}")
     public ResponseEntity<Post> updatePost(@PathVariable(value = "id") Integer id,
                                                    @RequestBody Post post) {
         try {
